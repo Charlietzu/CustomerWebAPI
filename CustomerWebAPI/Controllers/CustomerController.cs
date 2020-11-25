@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using CustomerWebAPI.Models;
 using CustomerWebAPI.Util;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerWebAPI.Controllers
@@ -11,6 +12,13 @@ namespace CustomerWebAPI.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
+        Authentication _authenticationService;
+
+        public CustomerController(IHttpContextAccessor context)
+        {
+            _authenticationService = new Authentication(context);
+        }
+
         [HttpGet]
         public List<CustomerModel> GetCustomers()
         {
@@ -75,6 +83,7 @@ namespace CustomerWebAPI.Controllers
 
             try
             {
+                _authenticationService.Auth();
                 new CustomerModel().DeleteCustomer(id);
                 ret.Result = true;
                 ret.ErrorMessage = string.Empty;
