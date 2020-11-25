@@ -44,5 +44,49 @@ namespace CustomerWebAPI.Controllers
 
             return ret;
         }
+
+        [HttpPut]
+        [Route("update/{id}")]
+        public ReturnAllServices UpdateCustomer(int id, [FromBody] CustomerModel customer)
+        {
+            ReturnAllServices ret = new ReturnAllServices();
+
+            try
+            {
+                customer.UpdateCustomer(id);
+                ret.Result = true;
+                ret.ErrorMessage = string.Empty;
+
+            }
+            catch (Exception e)
+            {
+                ret.Result = false;
+                ret.ErrorMessage = "Error while trying to update a customer: " + e.Message;
+            }
+
+            return ret;
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public ReturnAllServices DeleteCustomer(int id)
+        {
+            ReturnAllServices ret = new ReturnAllServices();
+
+            try
+            {
+                new CustomerModel().DeleteCustomer(id);
+                ret.Result = true;
+                ret.ErrorMessage = string.Empty;
+
+            }
+            catch (Exception e)
+            {
+                ret.Result = false;
+                ret.ErrorMessage = "Error while trying to delete a customer: " + e.Message;
+            }
+
+            return ret;
+        }
     }
 }

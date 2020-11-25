@@ -50,6 +50,25 @@ namespace CustomerWebAPI.Models
             objDAL.RunSQLCommand(sql);
         }
 
+        public void UpdateCustomer(int id)
+        {
+            DAL objDAL = new DAL();
+
+            string sql = $"UPDATE customer set CUSTOMER_NAME = '{CustomerName}', REGISTER_DATE = '{DateTime.Parse(RegisterDate).ToString("yyyy/MM/dd")}', CPF_CNPJ = '{CpfCnpj}', BIRTH_DATE = '{DateTime.Parse(BirthDate).ToString("yyyy/MM/dd")}', USER_TYPE = '{UserType}', PHONE = '{Phone}', EMAIL = '{Email}', STREET = '{Street}', HOUSE_NUMBER = '{HouseNumber}', NEIGHBORHOOD = '{Neighborhood}', COMPLEMENT = '{Complement}', CITY = '{City}', POSTAL_CODE = '{PostalCode}', FU = '{Fu}'" +
+                          $"WHERE ID = {id}";
+
+            objDAL.RunSQLCommand(sql);
+        }
+
+        public void DeleteCustomer(int id)
+        {
+            DAL objDAL = new DAL();
+
+            string sql = $"DELETE FROM customer WHERE ID = {id}";
+
+            objDAL.RunSQLCommand(sql);
+        }
+
         public List<CustomerModel> GetCustomers()
         {
             List<CustomerModel> customers = new List<CustomerModel>();

@@ -11,7 +11,7 @@ namespace CustomerWebAPI.Util
         private static string Password = "";
         private MySqlConnection Connection;
 
-        private string ConnectionString = $"Server={Server};Database={DataBase};Uid={User};Pwd={Password};Sslmode=none";
+        private string ConnectionString = $"Server={Server};Database={DataBase};Uid={User};Pwd={Password};Sslmode=none;charset=utf8;";
 
         public DAL()
         {
