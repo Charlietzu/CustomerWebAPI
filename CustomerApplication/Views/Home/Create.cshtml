@@ -1,0 +1,122 @@
+﻿@model CustomerModel
+
+<h2>Create a Customer</h2>
+
+@{
+    var id = string.Empty;
+    var customerName = string.Empty;
+    var registerDate = string.Empty;
+    var cpfCnpj = string.Empty;
+    var birthDate = string.Empty;
+    var userType = string.Empty;
+    var phone = string.Empty;
+    var email = string.Empty;
+    var street = string.Empty;
+    var houseNumber = string.Empty;
+    var neighborhood = string.Empty;
+    var complement = string.Empty;
+    var city = string.Empty;
+    var postalCode = string.Empty;
+    var fu = string.Empty;
+
+    try
+    {
+        id = ViewBag.Customer.Id.ToString();
+        customerName = ViewBag.Customer.CustomerName.ToString();
+        registerDate = ViewBag.Customer.RegisterDate.ToString();
+        cpfCnpj = ViewBag.Customer.CpfCnpj.ToString();
+        birthDate = ViewBag.Customer.BirthDate.ToString();
+        userType = ViewBag.Customer.UserType.ToString();
+        phone = ViewBag.Customer.Phone.ToString();
+        email = ViewBag.Customer.Email.ToString();
+        street = ViewBag.Customer.Street.ToString();
+        houseNumber = ViewBag.Customer.HouseNumber.ToString();
+        neighborhood = ViewBag.Customer.Neighborhood.ToString();
+        city = ViewBag.Customer.City.ToString();
+        postalCode = ViewBag.Customer.PostalCode.ToString();
+        fu = ViewBag.Customer.Fu.ToString();
+        complement = ViewBag.Customer.Complement.ToString();
+
+    }
+    catch (Exception e)
+    {
+
+    }
+}
+
+<form asp-controller="Home" asp-action="Create">
+    <input asp-for="Id" class="form-control" value="@id" type="hidden"/>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Customer Name</label>
+            <input asp-for="CustomerName" class="form-control" value="@customerName" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Register Date</label>
+            <input asp-for="RegisterDate" class="form-control" value="@registerDate" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>CPF or CNPJ</label>
+            <input asp-for="CpfCnpj" class="form-control" value="@cpfCnpj" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Birth Date</label>
+            <input asp-for="BirthDate" class="form-control" value="@birthDate" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>User Type</label>
+            <input asp-for="UserType" class="form-control" value="@userType" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Phone</label>
+            <input asp-for="Phone" class="form-control" value="@phone" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control" value="@email" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Street</label>
+            <input asp-for="Street" class="form-control" value="@street" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>House Number</label>
+            <input asp-for="HouseNumber" class="form-control" value="@houseNumber" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Neighborhood</label>
+            <input asp-for="Neighborhood" class="form-control" value="@neighborhood" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Complement</label>
+            <input asp-for="Complement" class="form-control" value="@complement" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>City</label>
+            <input asp-for="City" class="form-control" value="@city" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>Postal Code</label>
+            <input asp-for="PostalCode" class="form-control" value="@postalCode" />
+        </div>
+
+        <div class="col-lg-3">
+            <label>FU (Federative Unit)</label>
+            <input asp-for="Fu" class="form-control" value="@fu" />
+        </div>
+    </div>
+    <br /> <br />
+    <button type="submit" class="btn btn-block btn-success" onclick="create()">Save</button>
+</form>

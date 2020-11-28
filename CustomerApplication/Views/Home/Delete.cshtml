@@ -1,0 +1,15 @@
+﻿<h2>Delete Customer</h2>
+<h4>Are you sure you want to delete the customer?</h4>
+
+<button class="btn btn-danger" onclick="Remove(1)">Yes</button>
+<button class="btn btn-primary" onclick="Remove(0)">No</button>
+
+<script>
+    function Remove(id) {
+        if (id == 0) {
+            window.location.href = window.location.origin + "/Home/Index";
+        } else {
+            window.location.href = window.location.origin + "/Home/DeleteCustomer/" + '@ViewData["CustomerID"]';
+        }
+    }
+</script>
